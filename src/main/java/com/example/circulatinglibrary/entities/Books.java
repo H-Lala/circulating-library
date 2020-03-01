@@ -21,4 +21,6 @@ public class Books {
     String author;
     @Column(name = "counts")
     int counts;
+
+
 }

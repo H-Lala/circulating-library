@@ -10,4 +10,5 @@ public interface BooksRepository extends CrudRepository<Books,Integer> {
     Iterable<Books> findAllById(@Param("id") int id);
     Iterable<Books>findAllByNames(@Param("names") String names);
     Iterable<Books> findAllByAuthor(@Param("author")String author);
+
 }
