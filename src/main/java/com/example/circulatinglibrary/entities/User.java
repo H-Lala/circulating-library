@@ -26,9 +26,9 @@ public class User {
     String email;
     @NotBlank(message = "Password is required!")
     @Column(name = "password")
-    int password;
+    String password;
 
-    public User( String username, String email , int password) {
+    public User( String username, String email , String password) {
         this.username=username;
         this.email=email;
         this.password=password;

@@ -24,13 +24,13 @@ public class UserService {
         return userRepository.findAll();
     }
     public Iterable<User> byId(int id){
-        return  userRepository.findAllById(id);
+        return  userRepository.findById(id);
     }
-    public Iterable<User> byUsername(String username){
-        return userRepository.findAllByUsername(username);
-    }
+//    public Iterable<User> byUsername(String username){
+//        return userRepository.findByUsername2(username);
+//    }
     public Iterable<User> byEmail(String email){
-        return userRepository.findAllByEmail(email);
+        return userRepository.findByEmail(email);
     }
 
     public User create(User user){
@@ -40,8 +40,8 @@ public class UserService {
     public void delete(User user){
         userRepository.delete(user);
     }
-    public User createIntial(){
-        User newOne = new User("John","email@gmail.com",123456);
+    public User createInitial(){
+        User newOne = new User("John","email@gmail.com","123456");
          userRepository.save(newOne);
          return newOne;
     }
