@@ -7,11 +7,11 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class UserDetail implements UserDetails {
-    private final  int id;
+    private final  long id;
     private final String username;
     private final String password;
 
-    public UserDetail(int id, String username, String password) {
+    public UserDetail(long id, String username, String password) {
         this.id = id;
         this.username = username;
         this.password = password;

@@ -9,8 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends CrudRepository<User,Integer> {
-    Iterable<User>findById(@Param("id") int id);
-   // Iterable<User>findByUsername2(@Param("username") String username);
+    Optional<User>findById(@Param("id") long id);
     Iterable<User> findByEmail(@Param("email")String email);
     Optional<User> findByUsername(@Param("username")String username);
 

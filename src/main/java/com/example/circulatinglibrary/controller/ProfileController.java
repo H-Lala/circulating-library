@@ -1,17 +1,14 @@
 package com.example.circulatinglibrary.controller;
 
-import com.example.circulatinglibrary.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("login")
-public class UserController {
+@RequestMapping("profile")
+public class ProfileController {
     @GetMapping("index")
-    public String getLogin() {
-        return "login/index";
+    public String getProfile(){
+        return "profile/index";
     }
-
-
 }

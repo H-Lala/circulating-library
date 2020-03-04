@@ -30,4 +30,12 @@ public class UserDetailService implements UserDetailsService {
                 ));
 
     }
+    public UserDetails loadUserById(long userId){
+        return userRepository.findById(userId)
+                .map(UserDetailService::mapper)
+                .orElseThrow(()->new UsernameNotFoundException(
+                        String.format("User with id : %d not found",userId)
+                ));
+
+    }
 }

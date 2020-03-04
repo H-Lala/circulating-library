@@ -6,23 +6,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/books")
+@RequestMapping("home")
 public class BookController {
-
-    private BookService bookService;
-
-    public BookController(BookService bookService) {
-        this.bookService = bookService;
-    }
-
-    @GetMapping("/")
-    public Iterable<Books> getAll() {
-        return bookService.getAll();
-    }
-    @GetMapping("/{id}")
-    public Iterable<Books> getById(@PathVariable("id") int id){
-        return bookService.getById(id);
-    }
+     @GetMapping("index")
+     public String getHome(){
+         return "home/index";
+     }
 
 
 

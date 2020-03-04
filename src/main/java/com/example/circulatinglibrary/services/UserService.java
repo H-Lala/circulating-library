@@ -23,9 +23,9 @@ public class UserService {
     public Iterable<User> getAll(){
         return userRepository.findAll();
     }
-    public Iterable<User> byId(int id){
-        return  userRepository.findById(id);
-    }
+//    public Iterable<User> byId(long id){
+//        return  userRepository.findById(id);
+//    }
 //    public Iterable<User> byUsername(String username){
 //        return userRepository.findByUsername2(username);
 //    }
