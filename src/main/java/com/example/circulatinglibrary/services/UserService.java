@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -31,6 +32,9 @@ public class UserService {
 //    }
     public Iterable<User> byEmail(String email){
         return userRepository.findByEmail(email);
+    }
+    public Optional<User> byUsername(String username){
+        return userRepository.findByUsername(username);
     }
 
     public User create(User user){

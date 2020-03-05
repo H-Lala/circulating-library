@@ -6,9 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("home")
+@RequestMapping("/api")
 public class BookController {
-     @GetMapping("index")
+     @GetMapping("/home")
      public String getHome(){
          return "home/index";
      }

@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("registration")
+@RequestMapping("/api")
 public class RegistrationController {
-    @GetMapping("index")
+    @GetMapping("/registration")
     public String getRegistration(){
         return "registration/index";
     }

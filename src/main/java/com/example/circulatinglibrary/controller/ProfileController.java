@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("profile")
+@RequestMapping("/api")
 public class ProfileController {
-    @GetMapping("index")
+    @GetMapping("/profile")
     public String getProfile(){
         return "profile/index";
     }
