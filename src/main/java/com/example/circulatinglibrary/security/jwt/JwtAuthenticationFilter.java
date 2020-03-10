@@ -49,10 +49,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                  .map(tokenService::extractUserIdFromClaims)
                  .map(userDetailService::loadUserById)
                  .map(ud-> new UsernamePasswordAuthenticationToken(ud, null,ud.getAuthorities()))
-                  .ifPresent(auht->{
-                      auht.setDetails(new WebAuthenticationDetailsSource()
+                  .ifPresent(auth->{
+                      auth.setDetails(new WebAuthenticationDetailsSource()
                       .buildDetails(httpServletRequest));
-                      SecurityContextHolder.getContext().setAuthentication(auht);
+                      SecurityContextHolder.getContext().setAuthentication(auth);
                   });
          filterChain.doFilter(httpServletRequest,httpServletResponse);
      }catch (Exception ex){

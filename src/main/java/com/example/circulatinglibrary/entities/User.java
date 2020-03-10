@@ -27,7 +27,10 @@ public class User {
     @NotBlank(message = "Password is required!")
     @Column(name = "password")
     String password;
+
+
     String roles;
+
   @Transient
   public String ROLES_DELIMITER = ":";
     public User(String username, String email, String password, String... roles) {

@@ -8,6 +8,7 @@ import com.example.circulatinglibrary.dto.response.LogoutResponse;
 import com.example.circulatinglibrary.dto.response.RegisterResponse;
 import com.example.circulatinglibrary.services.UserService;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class AuthController {
     private final AuthService authService;
+
     private final UserService userService;
 
     public AuthController(AuthService authService, UserService userService) {
@@ -27,13 +29,15 @@ public class AuthController {
     @PostMapping("/login")
     public LoginResponse login(@RequestBody LoginRequest request){
         log.info(request);
-        log.info("login function in authcontrl");
+        log.info("login function in auth control");
         return authService
-                .login(request.getUsername(),request.getPassword())
+                .login(request.getUsername(),request.getPassword(),request.isRemember())
                 // you have to fix this section
-                .map(t -> new LoginResponse(userService.byEmail(request.getUsername()).toString(),t))//,request.isRemember())
+                .map(t -> new LoginResponse(userService.byUsername(request.getUsername()).get(),t))
                // .map(new LoginResponse("OK"))
-                .orElse(new LoginResponse("ERROR",null));
+                .orElse(new LoginResponse(null,null));
+
+
 
     }
     @PostMapping("/logout")

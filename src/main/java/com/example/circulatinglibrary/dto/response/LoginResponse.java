@@ -8,6 +8,6 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public class LoginResponse {
-private  String message;
-private String token;
+    private User user;
+    private String token;
 }

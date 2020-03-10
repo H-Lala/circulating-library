@@ -37,7 +37,7 @@ public class AuthService {
         return !found.isPresent();
     }
 
-    public Optional<String> login(String username , String password){//, boolean remember){
+    public Optional<String> login(String username , String password, boolean remember){
         return Optional.of(authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(username,password)
         )).filter(Authentication::isAuthenticated)
@@ -46,7 +46,7 @@ public class AuthService {
                     return a;
                 })
                 .map(a->(UserDetail) a.getPrincipal())
-                .map(userDetail -> tokenService.generateToken(userDetail.getId()))//,remember))
+                .map(userDetail -> tokenService.generateToken(userDetail.getId(),remember))
                 .map(t-> Const.AUTH_BEARER+t);
     }
 }

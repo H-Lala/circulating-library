@@ -28,7 +28,7 @@ public class JwtTokenService {
         final Date now = new Date();
         final  Date expiry = new Date(now.getTime() + (rememberMe? expiration_remember :expiration_normal));
         return Jwts.builder()
-                .setSubject(userId.toString())
+                .setSubject(String.valueOf(userId))
                 .setIssuedAt(now)
                 .setExpiration(expiry)
                 .signWith(SignatureAlgorithm.HS512,jwtSecret)
@@ -42,7 +42,10 @@ public class JwtTokenService {
     }
 
     public Optional<Jws<Claims>> tokenToClaim(String token){
+        System.out.println("tokeToClaim");
         try {
+            System.out.println("JwtTokenService class try block");
+            System.out.println(token);
             return Optional.of(Jwts.parser()
             .setSigningKey(jwtSecret)
             .parseClaimsJws(token));
